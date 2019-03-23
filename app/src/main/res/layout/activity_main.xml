@@ -4,9 +4,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Produto :"   />
+
+    <AutoCompleteTextView
+        android:id="@+id/etProduto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quantidade:"   />
+
+    <EditText
+        android:id="@+id/etQtd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Valor:"   />
+
+    <EditText
+        android:id="@+id/etValor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btIncluir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Adicionar Prod."
+        android:onClick="btIncluirOnClick"/>
+
+    <Button
+        android:id="@+id/btListar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Listar Prod."
+        android:onClick="btListarOnClick"/>
+
+    <Button
+        android:id="@+id/btIniciarBase"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Iniciar"
+        android:onClick="btIniciarBaseOnClick"/>
+
 
 
 </LinearLayout>
