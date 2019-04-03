@@ -8,6 +8,16 @@ public class Produto implements Serializable {
     private String nome;
     private double qtd;
     private double valor;
+    private double valorUnitario;
+
+
+    public double getValorUnitario() {
+        return valorUnitario;
+    }
+
+    public void setValorUnitario(double valorUnitario) {
+        this.valorUnitario = valorUnitario;
+    }
 
     public int get_id() {
         return _id;

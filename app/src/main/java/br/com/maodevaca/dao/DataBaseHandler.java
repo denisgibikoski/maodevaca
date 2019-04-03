@@ -12,7 +12,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 
 
     private static final String DATABASE_NAME = "produtos";
-    private static final int VERSION = 1 ;
+    private static final int VERSION = 2 ;
 
     private static final String TABLE_DESCRICAO = "descricao";
     private static final String TABLE_PRODUTO = "produto";
@@ -66,6 +66,14 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase banco = this.getWritableDatabase();
 
         Cursor registros = banco.query(TABLE_PRODUTO, null, null, null,null,null,null);
+
+
+        return registros;
+    }
+    public Cursor listarDescricao() {
+        SQLiteDatabase banco = this.getWritableDatabase();
+
+        Cursor registros = banco.query(TABLE_DESCRICAO, null, null, null,null,null,null);
 
 
         return registros;

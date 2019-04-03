@@ -1,19 +1,21 @@
 package br.com.maodevaca;
 
-import android.database.Cursor;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
-import android.widget.Toast;
 
 import br.com.maodevaca.dao.DataBaseHandler;
 import br.com.maodevaca.model.Produto;
 
+import static android.widget.Toast.LENGTH_LONG;
+import static android.widget.Toast.makeText;
+
 public class MainActivity extends AppCompatActivity {
+
+    private AutoCompleteTextView autoCompleteTextView;
 
     private EditText etNome;
     private EditText etQtd;
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
 
         etNome = findViewById( R.id.etProduto);
@@ -44,35 +47,17 @@ public class MainActivity extends AppCompatActivity {
         prod.setQtd(Double.parseDouble(etQtd.getText().toString()));
         prod.setValor(Double.parseDouble(etValor.getText().toString()));
 
+        prod.setValorUnitario( prod.getQtd() / prod.getValor() );
         banco.salvar(prod);
 
-        Toast.makeText(this, "Sucesso", Toast.LENGTH_LONG).show();
+        makeText(this, "Sucesso", LENGTH_LONG).show();
 
     }
 
     public void btListarOnClick(View view) {
 
-        Cursor registros = banco.listar();
-
-        ListView lvCadastro = new ListView(this);
-
-        String campos[] = { "nome" };
-        int idTela = android.R.layout.simple_list_item_1;
-
-        int camposTela[] = { android.R.id.text1};
-
-        SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, idTela, registros,campos, camposTela);
-
-        lvCadastro.setAdapter(adapter);
-
-        AlertDialog.Builder alerta = new AlertDialog.Builder(this);
-
-        alerta.setTitle("Registro");
-        alerta.setCancelable(false);
-        alerta.setPositiveButton("O Mais Barato", null);
-        alerta.setView(lvCadastro);
-        alerta.show();
-
+        Intent i = new Intent(this, ListarActivity.class);
+        startActivity(i);
 
     }
 

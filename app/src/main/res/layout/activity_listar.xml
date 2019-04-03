@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="bottom|end"
+    android:orientation="vertical"
+    android:id="@+id/lvProdutos"
+    tools:context=".ListarActivity">
+
+    <Button
+        android:id="@+id/btMaisBarato"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Produto Mais Barrato"
+        android:onClick="btMaisBaratoOnClick"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/lista"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+</LinearLayout>
